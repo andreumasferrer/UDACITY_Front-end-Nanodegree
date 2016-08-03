@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Barcelona - Top 10 Sushi</title>
+  <meta name="description" content="Project: Neiborhood Map for Udacity Front-end
+    Nanodegree course. Lessons: AJAX, Javascript Design Patterns, Frameworks &amp; APIs">
+  <meta name="author" content="Andreu Masferrer">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- TODO: Customize normalize.css -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <div class="main-container">
+    <header class="info-header" data-bind="visible: currentFilter()"></header>
+    <div id="map" class="map" data-bind="click: mapClick, css: {'no-shadow': !currentFilter() }"></div>
+  </div>
+  <!-- Overlapping elements -->
+  <button class="show-search-btn" data-bind="click: showPanel, visible: !visiblePanel() && !currentFilter()">
+    <i class="fa fa-search" aria-hidden="true"></i>
+  </button>
+
+  <img class="logo" src="img/logo.svg" alt="Webapp logo - BCN TOP 10 SUSHI" />
+
+  <div class="search-panel" data-bind="visible: visiblePanel() || pinnedPanel() || currentFilter(), css: { 'search-panel_pinned': pinnedPanel, 'no-shadow': pinnedPanel() , 'search-panel_filtering': currentFilter() && (!visiblePanel() || pinnedPanel())}">
+    <button class="search-panel__pin-btn" data-bind="click: togglePinPanel">
+      <i class="fa fa-thumb-tack" aria-hidden="true" data-bind="visible: !pinnedPanel()"></i>
+      <i class="fa fa-caret-square-o-right" aria-hidden="true" data-bind="visible: pinnedPanel()"></i>
+    </button>
+    <div class="search-panel__search-component">
+      <input class="search-panel__search-input" type="search" data-bind="textInput: currentFilter, click: showPanel" placeholder="Search restaurant..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search restaurant...'">
+      <button class="search-panel__reset-btn" data-bind="click: clearFilter, visible: currentFilter()">
+        <i class="fa fa-times-circle fa-lg" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="search-panel__results-info" data-bind="visible: currentFilter()"><span data-bind="text: visiblePlaces().length"></span> results</div>
+  </div>
+
+  <div class="places-panel" data-bind="visible: visiblePanel() || pinnedPanel(), css: { 'places-panel_pinned': pinnedPanel, 'no-shadow': pinnedPanel }">
+    <ul class="places-panel__list" data-bind="foreach: visiblePlaces">
+      <li class="places-panel__place" data-bind="click: $parent.setCurrentPlace">
+        <h3 class="places-panel__place__title" data-bind="text: name"></h3>
+        <div class="places-panel__place__subtitle text-left" data-bind="text: address"></div>
+        <div class="places-panel__place__subtitle text-rigth" data-bind="text: neighborhood"></div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- InfoWindow content template -->
+  <script type="text/html" id="iw-template">
+    <div id="iw-content" data-bind="with: currentPlace">
+      <h3 class="places-panel__place__title" data-bind="text: name"></h3>
+      <div data-bind="text: address"></div>
+      <div data-bind="text: neighborhood"></div>
+      <div>
+        <i class="fa fa-phone" aria-hidden="true"></i><span data-bind="text: telephone"></span>
+        <span data-bind="visible: website">
+          &nbsp;&nbsp;&nbsp;<i class="fa fa-globe" aria-hidden="true"></i>
+          <a class="places-panel__place__link" data-bind="attr: { href: website}" target="_blank">Website</a>
+        </span>
+      </div>
+      <hr>
+      <!-- Yelp info -->
+      <div data-bind="visible: yelpStatus() === 'loading' ">
+        <img class="iw-yelp-loading-img" src="img/ajax-loader.gif" alt="Loading Yelp info">
+      </div>
+      <div class="iw-yelp" data-bind="visible: yelpStatus() === 'ready'">
+        <a data-bind="attr: { href: $parent.getYelpURL}" target="_blank">
+          <!-- <img class="iw-yelp__rating-img" src="http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png" srcset="http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png 2x,
+            http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png 1x" alt="Image rating"> -->
+          <img class="iw-yelp__rating-img" data-bind="attr: { src: $parent.getYelpRatingImg, srcset: $parent.getYelpRatingImgSrcSet }" alt="Image rating">
+          <span class="iw-yelp__reviews">
+            <span data-bind="text: $parent.getYelpReviewCount"></span> reviews
+          <span>
+        </a>
+        <a href="#">
+          <img class="iw-yelp__logo" src="img/yelp-logo-xsmall.png"
+            srcset="img/yelp-logo-xsmall@2x.png 2x, img/yelp-logo-xsmall.png 1x" alt="Yelp logo">
+        </a>
+      </div>
+      <div class="iw-yelp-error" data-bind="visible: yelpStatus() === 'error'">
+        <i class="fa fa-bolt" aria-hidden="true"></i>
+        Unable to retrieve Yelp data
+      </div>
+    </div>
+  </script>
+
+  <script src="https://use.fontawesome.com/57722dc17c.js"></script>
+  <script src="js/vendor/jquery-3.1.0.min.js"></script>
+  <script src='js/vendor/knockout-3.4.0.js'></script>
+  <script src='js/vendor/oauth-signature.min.js'></script>
+  <script src="js/app.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyAlDPTlrVKom_cn4SDlRF6WRzEquAeOK3U&callback=initMap" onerror="errorLoadingMapsAPI()"></script>
+
+</body>
+
+</html>
