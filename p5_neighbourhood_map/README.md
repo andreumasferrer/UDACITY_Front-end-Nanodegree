@@ -15,7 +15,7 @@ Following is Udacity's description for this project:
 ### How to run
 * Just download or clone this repository and open `dist/index.html` in your favorite browser.
 
-You can play with an online version of this app by clicking [here](https://andreumasferrer.github.io/UDACITY_Front-end_Nanodegree/p5_neighbouhood_map/dist/).
+You can play with an online version of this app by clicking [here](https://andreumasferrer.github.io/UDACITY_Front-end_Nanodegree/p5_neighbourhood_map/dist/).
 
 ### How to build
 You can edit and build your own version of this project using [Gulp](http://gulpjs.com/). In the terminal, go to the project directory and:
