@@ -1,0 +1,117 @@
+/* ------ GENERIC STYLES ------ */
+
+body {
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+}
+
+a {
+  color: #333;
+}
+
+a:hover {
+  color: #000;
+  text-decoration: none;
+}
+
+/* ------ MAIN SECTIONS STYLES ------ */
+
+.site-container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.site-header {
+  padding: 10px 0 0 0;
+}
+
+/* ------ HEADER STYLES ------ */
+
+.logo {
+  min-width: 50px;
+}
+
+.header-title {
+  margin: 0;
+  font-weight: 100;
+  font-size: 7vw;
+}
+
+.header-subtitle {
+  margin: 5px 0 0 0;
+  font-size: 3vw;
+}
+
+.header-separator {
+  border-top: 5px solid #23527c;
+}
+
+/* ------ INTRO STYLES ------ */
+
+.intro-text {
+  margin: 10px 0;
+}
+
+/* ------ PROJECT LIST STYLES ------ */
+
+.project {
+  margin: 20px 0 30px 0;
+}
+
+.projects-list-title {
+  color: #6f6e6e;
+  font-weight: 600;
+}
+
+.project-title {
+  margin: 5px 0;
+}
+
+.project-url {
+  height: 40px;
+}
+
+/* ------ FOOTER STYLES ------ */
+
+.made-by-text {
+  margin: 0 0 10px 0;
+  padding: 15px 0;
+}
+.social-icon {
+  padding: 18px;  /* Ensure minimum tap size for touch devices */
+}
+
+/* ------ MEDIA QUERIES ------ */
+
+/* Tweaks to adjust styles on larger viewports */
+@media screen and (min-width:768px) {
+
+  .logo {
+    max-width: 100px;
+  }
+
+  .header-title {
+    font-size: 52px;
+  }
+
+  .header-subtitle {
+    font-size: 26px;
+  }
+
+  .intro-text {
+    font-size: 23px;
+  }
+
+  .project-url {
+    font-size: 12px;
+  }
+
+  .made-by {
+    text-align: left;
+  }
+
+  .social-links {
+    text-align: right;
+  }
+
+}
