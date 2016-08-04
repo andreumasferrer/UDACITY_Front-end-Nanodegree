@@ -3,7 +3,8 @@
 # UDACITY - Front-End Web Developer Nanodegree 
 
 
-Here are the projects I did during the Front-end Web Developer Nanodegree course at Udacity _(Summer 2016)_ 
+Here are the projects I did during the Front-end Web Developer Nanodegree course at Udacity _(Summer 2016)_  
+[View certificate](https://andreumasferrer.github.io/UDACITY_Front-end_Nanodegree/readme-assets/certificate.pdf)
 
 <p align="center">
 	<img src="https://andreumasferrer.github.io/UDACITY_Front-end_Nanodegree/readme-assets/udacity-logo.png" border="0" alt="Udacity logo">
@@ -32,7 +33,7 @@ It is a fake online resume that retrieves information from Javascript objects fo
 
 
 <p align="center">
-		<img src="https://andreumasferrer.github.io/UDACITY_Front-end_Nanodegree/readme-assets/online-resume.jpg" alt="Online resume screenshot">
+		<img src="https://andreumasferrer.github.io/UDACITY_Front-end_Nanodegree/readme-assets/online_resume.jpg" alt="Online resume screenshot">
 </p>
 
 
@@ -43,7 +44,7 @@ The purpose of this project was to practice object-oriented programming in JavaS
 
 
 <p align="center">
-		<img src="https://andreumasferrer.github.io/UDACITY_Front-end_Nanodegree/readme-assets/arcade-game.jpg" alt="Arcade game screenshot">
+		<img src="https://andreumasferrer.github.io/UDACITY_Front-end_Nanodegree/readme-assets/arcade_game.jpg" alt="Arcade game screenshot">
 </p>
 
 
