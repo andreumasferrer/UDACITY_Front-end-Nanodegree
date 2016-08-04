@@ -3,6 +3,9 @@
 ## About
 The goal for this project was to optimize [Cameron Pittman's portfolio](https://github.com/gosukiwi/web-performance-portfolio) page for speed. In particular, optimize the critical rendering path and make _index.html_ page render as quickly as possible and improve _main.js_ to achieve 60 fps in _pizza.html_. This was done by applying the techniques I had picked up in  [Website Performance Optimization](https://www.udacity.com/course/ud884) and [Browser Rendering Optimization](https://www.udacity.com/course/ud860) courses. 
 
+Following is Udacity's description for this project:
+> *You will optimize a provided website with a number of optimization- and performance-related issues so that it achieves a target PageSpeed score and runs at 60 frames per second.*
+
 
 ##Getting started
 ### How to run

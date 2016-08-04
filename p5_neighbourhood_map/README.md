@@ -1,4 +1,4 @@
-# Project: Neighborhood Map
+# Neighborhood Map (Japanese restaurants)
 
 ## About
 This is the fifth project of the Front-End Web Developer Nanodegree from Udacity. It is a Single Page Application _(SPA)_ with an interactive map containing info about my favorite Japanese restaurants in Barcelona. 

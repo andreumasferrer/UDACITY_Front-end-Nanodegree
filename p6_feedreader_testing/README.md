@@ -1,4 +1,4 @@
-# Project: Feed Reader
+# Feed Reader Testing
 
 ## About
 This is the sixth project of the Front-End Web Developer Nanodegree from Udacity.

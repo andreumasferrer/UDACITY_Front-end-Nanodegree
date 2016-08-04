@@ -1,9 +1,11 @@
-# Frontend-nanodegree-arcade-game
+# Classic Arcade Game
 
 This project is part of the [Udacity's Front-end Nanodegree](https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001) course. The purpose is to practice **object-oriented programming** in JavaScript while recreating the classic arcade game Frogger.
 
 ![Screenshot](https://andreumasferrer.github.io/UDACITY_Front-end_Nanodegree/p3_arcade_game/Readme-assets/arcade.jpg)
 
+Following is Udacity's description for this project:
+> *You will be provided visual assets and a game loop engine; using these tools you must add a number of entities to the game including the player characters and enemies to recreate the classic arcade game Frogger.*
 
 ## Getting Started
 To play this game you can either:
